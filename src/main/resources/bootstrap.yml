@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    config:
+      uri: http://127.0.0.1:8888
+      fail-fast: true
+      password: 11223344
+      username: config-server
+  profiles:
+    active: dev

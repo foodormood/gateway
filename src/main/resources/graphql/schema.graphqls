@@ -12,5 +12,5 @@ type Category {
     id: ID!
     name: String
     nameEn: String
-    sortOrder: Int
+    order: Int
 }
