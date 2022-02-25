@@ -3,9 +3,26 @@ type Query {
     categories: [Category]
 }
 
+type Mutation {
+    createCategory(input: CreateCategoryInput!): Category!
+}
+
 type Item {
     id: ID!
     name: String
+}
+
+input CreateCategoryInput {
+    name: String
+    nameEn: String
+    order: Int
+}
+
+input UpdateCategoryInput {
+    id: ID!
+    name: String
+    nameEn: String
+    order: Int
 }
 
 type Category {
