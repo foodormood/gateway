@@ -3,6 +3,7 @@ package com.thetinydev.controller;
 import com.thetinydev.client.CategoryClient;
 import com.thetinydev.model.Category;
 import com.thetinydev.model.input.CreateCategoryInput;
+import com.thetinydev.model.input.UpdateCategoryInput;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -27,4 +28,8 @@ public class CategoryController {
         return categoryClient.createCategory(input);
     }
 
+    @MutationMapping
+    public Category updateCategory(@Argument UpdateCategoryInput input) {
+        return categoryClient.updateCategory(input);
+    }
 }

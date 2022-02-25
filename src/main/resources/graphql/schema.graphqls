@@ -5,6 +5,7 @@ type Query {
 
 type Mutation {
     createCategory(input: CreateCategoryInput!): Category!
+    updateCategory(input: UpdateCategoryInput!) : Category!
 }
 
 type Item {
