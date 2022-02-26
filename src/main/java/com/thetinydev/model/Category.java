@@ -1,6 +1,7 @@
 package com.thetinydev.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,5 +18,6 @@ public class Category implements Serializable {
 
     private int order;
 
+    private List<Item> items;
 
 }

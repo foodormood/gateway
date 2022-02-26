@@ -1,34 +1,57 @@
 type Query {
-    items : [Item],
     categories: [Category]
+    category(id : ID!): Category
+    items : [Item],
+    itemByCategory(categoryId : ID!): [Item]
 }
 
 type Mutation {
     createCategory(input: CreateCategoryInput!): Category!
     updateCategory(input: UpdateCategoryInput!) : Category!
+    createItem(input: CreateItemInput!): Item!
+    updateItem(input: UpdateItemInput!) : Item!
 }
 
 type Item {
     id: ID!
-    name: String
+    name: String!
+    nameEn: String!
+    imageUrl: String!
+}
+
+input CreateItemInput {
+    categoryId: String!
+    name: String!
+    nameEn: String!
+    imageUrl: String!
+}
+
+input UpdateItemInput {
+    id: ID!
+    categoryId: String!
+    name: String!
+    nameEn: String!
+    imageUrl: String!
+}
+
+type Category {
+    id: ID!
+    name: String!
+    nameEn: String!
+    order: Int
+    items : [Item]
 }
 
 input CreateCategoryInput {
-    name: String
-    nameEn: String
+    name: String!
+    nameEn: String!
     order: Int
 }
 
 input UpdateCategoryInput {
     id: ID!
-    name: String
-    nameEn: String
+    name: String!
+    nameEn: String!
     order: Int
 }
 
-type Category {
-    id: ID!
-    name: String
-    nameEn: String
-    order: Int
-}
