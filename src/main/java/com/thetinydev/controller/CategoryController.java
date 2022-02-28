@@ -6,6 +6,7 @@ import com.thetinydev.model.Category;
 import com.thetinydev.model.Item;
 import com.thetinydev.model.input.CreateCategoryInput;
 import com.thetinydev.model.input.UpdateCategoryInput;
+import com.thetinydev.security.ContextHolder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
@@ -25,6 +26,7 @@ public class CategoryController {
 
     @QueryMapping
     public List<Category> categories() {
+        String t = ContextHolder.getCurrentUserId();
         return categoryClient.findAll();
     }
 
